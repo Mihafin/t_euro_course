@@ -1,5 +1,4 @@
-Sample code for the tutorial:
+Tinkoff course of EUR->RUB in MacOS tray.
 
-macOS Menu Bar App
-
+Based on:
 https://medium.com/@hoishing/menu-bar-apps-f2d270150660
