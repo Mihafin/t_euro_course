@@ -6,7 +6,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let RateCategory = "DebitCardsTransfers"
     let FromCurrency = "EUR"
     let ToCurrency = "RUB"
-    let TimerInterval = 1800 as Double
+    let TimerInterval = 300 as Double // every 5 minutes
     
     // strong reference to retain the status bar item object
 	var statusItem: NSStatusItem?
