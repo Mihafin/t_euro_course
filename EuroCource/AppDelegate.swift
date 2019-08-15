@@ -66,6 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 print(error ?? "Unknown error")
+                button.contentTintColor = .red
                 return
             }
             
@@ -75,6 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 guard let jsonObject = jsonResponse as? [String: Any] else {
                     print("Cant parse jsonResponse as [String: Any]")
                     print("jsonResponse: \(String(describing: jsonResponse))")
+                    button.contentTintColor = .red
                     return
                 }
                 
@@ -94,20 +96,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                 let resNumber = rate["buy"] as? NSNumber ?? -1
                                 let resString = String(format: "%.2f", resNumber.floatValue)
                                 found = true
-                                DispatchQueue.main.async { button.title = resString }
+                                DispatchQueue.main.async {
+                                    button.title = resString
+                                    button.contentTintColor = .gray
+                                }
                             }
                         }
                     }
                     if !found {
                         print("Not found!")
+                        button.contentTintColor = .red
                     }
                 }
                 else {
                     print("Result code is not OK!")
+                    button.contentTintColor = .red
                 }
             }
             catch let parsingError {
                 print("Parsing error:", parsingError)
+                button.contentTintColor = .red
             }
         }
         task.resume()
