@@ -99,6 +99,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                 DispatchQueue.main.async {
                                     button.title = resString
                                     button.contentTintColor = .gray
+                                    
+                                    let f = DateFormatter()
+                                    f.locale = Locale.current
+                                    f.dateStyle = .medium
+                                    f.timeStyle = .short
+                                    let d = f.string(from: Date())
+                                    button.toolTip = "Last updated at: \(d)"
                                 }
                             }
                         }
