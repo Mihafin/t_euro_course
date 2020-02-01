@@ -6,7 +6,7 @@ class SecondNibController: NSWindowController {
     }
 }
 
-class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate {
     
     // consts
     let RateCategory = "DebitCardsTransfers"
@@ -16,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     // strong reference to retain the status bar item object
 	var statusItem: NSStatusItem?
+    var showWndItem: NSMenuItem?
     
     let secondNibController = SecondNibController()
     
@@ -51,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         
         appMenu.insertItem(withTitle: "Update now",
                           action: #selector(updateCource), keyEquivalent: "U", at: 0)
-        appMenu.insertItem(withTitle: "Show window",
+        showWndItem = appMenu.insertItem(withTitle: "Show window",
                           action: #selector(showWindow), keyEquivalent: "W", at: 1)
         
         print("Create timer for every \(TimerInterval) sec")
@@ -65,14 +66,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     @objc func showWindow() {
         print("===> showWindow")
-        
-//        if (secondNibController.window == nil) {
-//            secondNibController.loadWindow()
-//            let wnd = secondNibController.window! as! Tablo
-//            wnd.delegate = wnd
-//            print("===\(String(describing: wnd.delegate))")
-//        }
-        
         let wnd = secondNibController.window! as! Tablo
         
         if (wnd.delegate == nil) {
@@ -82,16 +75,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         print("\(String(describing: wnd.delegate))")
         if (wnd.isVisible) {
             secondNibController.close()
+            showWndItem?.title = "Show window"
         }
         else {
             secondNibController.showWindow(nil)
             if let button = statusItem?.button {
                 wnd.setText(button.title)
             }
-            
-//            lbl.font = NSFont.systemFont(ofSize: 50)
-            //lbl.frame
-//            lbl.adjustsFontSizeToFitWidth = true
+            showWndItem?.title = "Hide window"
         }
     }
     
