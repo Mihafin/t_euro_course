@@ -1,15 +1,9 @@
 import Cocoa
 
 class SecondNibController: NSWindowController {
-    //@IBOutlet weak var wnd: NSWindow!
-    
     override var windowNibName: String? {
         return "Tablo" // no extension .xib here
     }
-    
-//    override convenience init() {
-//        self.init(windowNibName: "<xib name>")
-//    }
 }
 
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -83,30 +77,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         else {
             secondNibController.showWindow(nil)
         }
-        
-        
-        //window?.titleVisibility = .hidden;
-        
-//        let controllerWindow = secondNibController.window!
-//        if (controllerWindow.isVisible) {
-//            print("is visible")
-//        }
-        
-            
-    //        if (secondNibController.isWindowLoaded) {
-    //            secondNibController.close()
-    //        }
-    //        else {
-    //            secondNibController.showWindow(nil)
-    //        }
-           
-    //        secondNibController
-            
-            
-    //        var myWindowController = NSStoryboard(name: "MainWnd", bundle: nil)?
-    //            .instantiateControllerWithIdentifier("MyWindowControllerIdentifier") as MyWindowControllerClass
-    //
-    //        myWindowController?.showWindow(self)
     }
     
     @objc func updateCource() {
