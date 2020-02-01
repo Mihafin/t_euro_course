@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87162F3123E47AB8003B392B /* Tablo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87162F3023E47AB8003B392B /* Tablo.xib */; };
 		FCC6C4D819A58C7A0063EC3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC6C4D719A58C7A0063EC3C /* main.swift */; };
 		FCC6C4DC19A58C7A0063EC3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC6C4DB19A58C7A0063EC3C /* AppDelegate.swift */; };
 		FCC6C4DE19A58C7A0063EC3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCC6C4DD19A58C7A0063EC3C /* Images.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		87162F3023E47AB8003B392B /* Tablo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Tablo.xib; sourceTree = "<group>"; };
 		FCC6C4D219A58C7A0063EC3C /* EuroCource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EuroCource.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC6C4D619A58C7A0063EC3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCC6C4D719A58C7A0063EC3C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 				FCC6C4DD19A58C7A0063EC3C /* Images.xcassets */,
 				FCC6C4DF19A58C7A0063EC3C /* Main.storyboard */,
 				FCC6C4D519A58C7A0063EC3C /* Supporting Files */,
+				87162F3023E47AB8003B392B /* Tablo.xib */,
 			);
 			path = EuroCource;
 			sourceTree = "<group>";
@@ -129,6 +132,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87162F3123E47AB8003B392B /* Tablo.xib in Resources */,
 				FCC6C4DE19A58C7A0063EC3C /* Images.xcassets in Resources */,
 				FCC6C4E119A58C7A0063EC3C /* Main.storyboard in Resources */,
 			);

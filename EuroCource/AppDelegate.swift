@@ -1,5 +1,17 @@
 import Cocoa
 
+class SecondNibController: NSWindowController {
+    //@IBOutlet weak var wnd: NSWindow!
+    
+    override var windowNibName: String? {
+        return "Tablo" // no extension .xib here
+    }
+    
+//    override convenience init() {
+//        self.init(windowNibName: "<xib name>")
+//    }
+}
+
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     // consts
@@ -10,6 +22,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // strong reference to retain the status bar item object
 	var statusItem: NSStatusItem?
+    
+    let secondNibController = SecondNibController()
     
     @IBOutlet weak var appMenu: NSMenu!
     
@@ -43,6 +57,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         appMenu.insertItem(withTitle: "Update now",
                           action: #selector(updateCource), keyEquivalent: "U", at: 0)
+        appMenu.insertItem(withTitle: "Show window",
+                          action: #selector(showWindow), keyEquivalent: "W", at: 1)
         
         print("Create timer for every \(TimerInterval) sec")
         let _ = Timer.scheduledTimer(withTimeInterval: TimerInterval, repeats: true) { _ in
@@ -51,6 +67,46 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         updateCource()
+    }
+    
+    @objc func showWindow() {
+        print("===> showWindow")
+        
+        if (secondNibController.window == nil) {
+            secondNibController.loadWindow()
+        }
+        
+        let wnd = secondNibController.window!
+        if (wnd.isVisible) {
+            secondNibController.close()
+        }
+        else {
+            secondNibController.showWindow(nil)
+        }
+        
+        
+        //window?.titleVisibility = .hidden;
+        
+//        let controllerWindow = secondNibController.window!
+//        if (controllerWindow.isVisible) {
+//            print("is visible")
+//        }
+        
+            
+    //        if (secondNibController.isWindowLoaded) {
+    //            secondNibController.close()
+    //        }
+    //        else {
+    //            secondNibController.showWindow(nil)
+    //        }
+           
+    //        secondNibController
+            
+            
+    //        var myWindowController = NSStoryboard(name: "MainWnd", bundle: nil)?
+    //            .instantiateControllerWithIdentifier("MyWindowControllerIdentifier") as MyWindowControllerClass
+    //
+    //        myWindowController?.showWindow(self)
     }
     
     @objc func updateCource() {
