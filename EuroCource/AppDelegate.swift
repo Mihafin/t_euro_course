@@ -6,7 +6,7 @@ class SecondNibController: NSWindowController {
     }
 }
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     
     // consts
     let RateCategory = "DebitCardsTransfers"
@@ -66,16 +66,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func showWindow() {
         print("===> showWindow")
         
-        if (secondNibController.window == nil) {
-            secondNibController.loadWindow()
+//        if (secondNibController.window == nil) {
+//            secondNibController.loadWindow()
+//            let wnd = secondNibController.window! as! Tablo
+//            wnd.delegate = wnd
+//            print("===\(String(describing: wnd.delegate))")
+//        }
+        
+        let wnd = secondNibController.window! as! Tablo
+        
+        if (wnd.delegate == nil) {
+            wnd.delegate = wnd
         }
         
-        let wnd = secondNibController.window!
+        print("\(String(describing: wnd.delegate))")
         if (wnd.isVisible) {
             secondNibController.close()
         }
         else {
             secondNibController.showWindow(nil)
+            if let button = statusItem?.button {
+                wnd.setText(button.title)
+            }
+            
+//            lbl.font = NSFont.systemFont(ofSize: 50)
+            //lbl.frame
+//            lbl.adjustsFontSizeToFitWidth = true
         }
     }
     
@@ -125,6 +141,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                 DispatchQueue.main.async {
                                     button.title = resString
                                     button.contentTintColor = .gray
+                                    
+                                    let wnd = self.secondNibController.window! as! Tablo
+                                    if (wnd.isVisible) {
+                                        wnd.setText(resString)
+                                    }
                                     
                                     let f = DateFormatter()
                                     f.locale = Locale.current
