@@ -133,9 +133,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                                     button.title = resString
                                     button.contentTintColor = .gray
                                     
-                                    let wnd = self.secondNibController.window! as! Tablo
-                                    if (wnd.isVisible) {
-                                        wnd.setText(resString)
+                                    if (Float(truncating: resNumber) > Float(0)) {
+                                        let wnd = self.secondNibController.window! as! Tablo
+                                        if (wnd.isVisible) {
+                                            wnd.setText(resString)
+                                        }
                                     }
                                     
                                     let f = DateFormatter()
